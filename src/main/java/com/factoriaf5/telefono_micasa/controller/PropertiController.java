@@ -8,16 +8,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.factoriaf5.telefono_micasa.services.PropertiService;
+
 @RestController
 @RequestMapping("/api/v1/search")
 public class PropertiController {
 
     @Autowired
-    private PropertiRepository PropertiRepository;
+    private PropertiService propertiService;
+
 
     @GetMapping("/action_type")
     public List <Properti> getPropertiesByAction(@RequestParam String type){
-        return PropertiRepository.findByAction(Action);
+        return PropertiService.getPropertiesByAction(action);
     }
 
     
