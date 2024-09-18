@@ -4,15 +4,15 @@ import com.factoriaf5.telefono_micasa.models.Role;
 import com.factoriaf5.telefono_micasa.models.User;
 import com.factoriaf5.telefono_micasa.services.RoleService;
 import com.factoriaf5.telefono_micasa.services.UserService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
+import java.util.List;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/api/v1")
 public class SalesmanRegisterController {
 
     @Autowired
@@ -26,10 +26,9 @@ public class SalesmanRegisterController {
         public String password;
     }
 
-    @PostMapping("/add-salesman")
+    @PostMapping("/salesmen")
     public ResponseEntity<String> createSalesman(@RequestBody SalesmanDTO salesmanDTO) {
         try {
-            // Buscar el rol de 'ROLE_SALESMAN' en la base de datos
             Role salesmanRole = roleService.findByName("ROLE_SALESMAN");
 
             if (salesmanRole == null) {
@@ -37,12 +36,17 @@ public class SalesmanRegisterController {
             }
 
             User user = new User(salesmanDTO.username, salesmanDTO.password);
-            user.setRoles(Collections.singleton(salesmanRole)); // Asignar el rol
+            user.setRoles(Collections.singleton(salesmanRole));
 
             userService.registerUser(user);
             return ResponseEntity.ok("Salesman created successfully!");
         } catch (Exception e) {
             return ResponseEntity.status(400).body("Error creating salesman: " + e.getMessage());
         }
+    }
+
+    @GetMapping("/salesmen")
+    public List<User> getAllSalesmen() {
+        return userService.getAllSalesmen();
     }
 }
