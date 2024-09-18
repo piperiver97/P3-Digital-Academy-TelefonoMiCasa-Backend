@@ -9,8 +9,6 @@ INSERT INTO users (id_user, username, password) VALUES (default, 'pepa', '$2a$12
 INSERT INTO roles_users (role_id, user_id) VALUES (1, 1);
 INSERT INTO roles_users (role_id, user_id) VALUES (2, 2); 
 
--- data.sql
-
 -- Insertar algunos datos de ejemplo en la tabla 'properti'
 INSERT INTO properti (price, description, address, area, action) VALUES
 (150000.00, 'Hermoso apartamento con vista al mar.', 'Calle del Mar 123, Gijón', 85.0, 'venta'),
