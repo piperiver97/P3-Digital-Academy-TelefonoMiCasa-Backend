@@ -51,6 +51,9 @@ public class SecurityConfig {
             .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
             .requestMatchers(HttpMethod.GET, endpoint + "/search/action_type").permitAll()
             .requestMatchers(HttpMethod.GET, endpoint + "/login").hasAnyRole("ADMIN")
+            .requestMatchers(HttpMethod.POST, endpoint + "/salesmen").hasAnyRole("ADMIN")
+            .requestMatchers(HttpMethod.GET, endpoint + "/salesmen").hasAnyRole("ADMIN")
+            .requestMatchers(HttpMethod.DELETE, endpoint + "/salesmen").hasAnyRole("ADMIN")
             .anyRequest().authenticated())
 
                 .userDetailsService(jpaUserDetailsService)
