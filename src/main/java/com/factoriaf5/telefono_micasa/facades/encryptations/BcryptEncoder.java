@@ -1,4 +1,4 @@
-package facades.encryptations;
+package com.factoriaf5.telefono_micasa.facades.encryptations;
 
 import com.factoriaf5.telefono_micasa.implementations.IEncoder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
