@@ -1,13 +1,16 @@
  /* Roles */
 INSERT INTO roles (id_role, name) VALUES (default, 'ROLE_USER');
 INSERT INTO roles (id_role, name) VALUES (default, 'ROLE_ADMIN');
+INSERT INTO roles (id_role, name) VALUES (default, 'ROLE_SALESMAN');
 
 /* Users */
 INSERT INTO users (id_user, username, password) VALUES (default, 'pepe', '1234');
 INSERT INTO users (id_user, username, password) VALUES (default, 'pepa', '$2a$12$fw8qjZwWYhvR.xzLUN5LuejC03NqCFuJQYwnstpBWki.Yi4L64MkW');
+INSERT INTO users (id_user, username, password) VALUES (default, 'bob', '1234');
 
 INSERT INTO roles_users (role_id, user_id) VALUES (1, 1);
 INSERT INTO roles_users (role_id, user_id) VALUES (2, 2); 
+INSERT INTO roles_users (role_id, user_id) VALUES (3, 3); 
 
 -- Insertar algunos datos de ejemplo en la tabla 'properti'
 INSERT INTO properti (price, description, address, area, action) VALUES

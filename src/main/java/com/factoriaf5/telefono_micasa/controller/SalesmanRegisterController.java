@@ -9,7 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -21,27 +23,31 @@ public class SalesmanRegisterController {
     @Autowired
     private RoleService roleService;
 
-    public static class SalesmanDTO {
-        public String username;
-        public String password;
-    }
-
     @PostMapping("/salesmen")
-    public ResponseEntity<String> createSalesman(@RequestBody SalesmanDTO salesmanDTO) {
+    public ResponseEntity<Map<String, String>> createSalesman(
+        @RequestHeader("username") String username,
+        @RequestHeader("password") String password) {
+        
         try {
             Role salesmanRole = roleService.findByName("ROLE_SALESMAN");
 
             if (salesmanRole == null) {
-                return ResponseEntity.status(500).body("Role not found");
+                return ResponseEntity.status(500).body(Collections.singletonMap("error", "Role not found"));
             }
 
-            User user = new User(salesmanDTO.username, salesmanDTO.password);
+            User user = new User(username, password);
             user.setRoles(Collections.singleton(salesmanRole));
 
             userService.registerUser(user);
-            return ResponseEntity.ok("Salesman created successfully!");
+
+            Map<String, String> response = new HashMap<>();
+            response.put("message", "Salesman created successfully!");
+            response.put("username", username);
+
+            return ResponseEntity.ok(response);
+
         } catch (Exception e) {
-            return ResponseEntity.status(400).body("Error creating salesman: " + e.getMessage());
+            return ResponseEntity.status(400).body(Collections.singletonMap("error", "Error creating salesman: " + e.getMessage()));
         }
     }
 
