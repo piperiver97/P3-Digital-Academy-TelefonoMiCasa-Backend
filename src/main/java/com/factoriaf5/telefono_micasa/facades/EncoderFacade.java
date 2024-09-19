@@ -1,8 +1,8 @@
-package facades;
+package com.factoriaf5.telefono_micasa.facades;
 
 
 
-import facades.encryptations.Base64Encoder;
+import com.factoriaf5.telefono_micasa.facades.encryptations.Base64Encoder;
 import com.factoriaf5.telefono_micasa.implementations.IEncryptFacade;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
