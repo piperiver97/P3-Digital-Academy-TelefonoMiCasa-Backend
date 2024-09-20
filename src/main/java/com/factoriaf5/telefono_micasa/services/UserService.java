@@ -1,5 +1,6 @@
 package com.factoriaf5.telefono_micasa.services;
 
+import com.factoriaf5.telefono_micasa.facades.encryptations.Base64Encoder;
 import com.factoriaf5.telefono_micasa.models.Role;
 import com.factoriaf5.telefono_micasa.models.User;
 import com.factoriaf5.telefono_micasa.repositories.UserRepository;
@@ -22,6 +23,9 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private Base64Encoder base64Encoder;
+
     public void createSalesman(String username, String encryptedPassword) {
         Role salesmanRole = roleService.findByName("ROLE_SALESMAN");
 
@@ -33,7 +37,9 @@ public class UserService {
             throw new IllegalArgumentException("Username already exists");
         }
 
-        User user = new User(username, encryptedPassword);
+        String decryptedPassword = base64Encoder.decode(encryptedPassword);
+
+        User user = new User(username, decryptedPassword);
         user.setRoles(Collections.singleton(salesmanRole));
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
