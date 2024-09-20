@@ -16,6 +16,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.http.HttpMethod;
 import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Value;
+
 import com.factoriaf5.telefono_micasa.facades.encryptations.Base64Encoder;
 import com.factoriaf5.telefono_micasa.services.JpaUserDetailsService;
 
@@ -24,7 +25,7 @@ import com.factoriaf5.telefono_micasa.services.JpaUserDetailsService;
 
 public class SecurityConfig {
 
-    @Value("${api-endpoint}") // ya se refiere al endpoint /api/v1, no es necesario cambiarlo.
+    @Value("${api-endpoint}")
     String endpoint;
 
     MyBasicAuthenticationEntryPoint myBasicAuthenticationEntryPoint;
@@ -49,7 +50,7 @@ public class SecurityConfig {
         .authorizeHttpRequests(auth -> auth
             .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
             .requestMatchers(HttpMethod.GET, endpoint + "/search/action_type").permitAll()
-            .requestMatchers(HttpMethod.GET, endpoint + "/login").hasAnyRole("ADMIN")
+            .requestMatchers(HttpMethod.GET, endpoint + "/login").hasAnyRole("ADMIN","SALESMAN")
             .requestMatchers(HttpMethod.POST, endpoint + "/salesmen").hasAnyRole("ADMIN")
             .requestMatchers(HttpMethod.GET, endpoint + "/salesmen").hasAnyRole("ADMIN")
             .requestMatchers(HttpMethod.DELETE, endpoint + "/salesmen").hasAnyRole("ADMIN")
