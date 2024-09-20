@@ -16,16 +16,16 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.http.HttpMethod;
 import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Value;
-import com.factoriaf5.telefono_micasa.services.JpaUserDetailsService;
 
-import facades.encryptations.Base64Encoder;
+import com.factoriaf5.telefono_micasa.facades.encryptations.Base64Encoder;
+import com.factoriaf5.telefono_micasa.services.JpaUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
 
 public class SecurityConfig {
 
-    @Value("${api-endpoint}") // ya se refiere al endpoint /api/v1, no es necesario cambiarlo.
+    @Value("${api-endpoint}")
     String endpoint;
 
     MyBasicAuthenticationEntryPoint myBasicAuthenticationEntryPoint;
