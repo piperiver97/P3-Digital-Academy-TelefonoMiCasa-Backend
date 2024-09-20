@@ -25,7 +25,7 @@ import com.factoriaf5.telefono_micasa.services.JpaUserDetailsService;
 
 public class SecurityConfig {
 
-    @Value("${api-endpoint}") // ya se refiere al endpoint /api/v1, no es necesario cambiarlo.
+    @Value("${api-endpoint}")
     String endpoint;
 
     MyBasicAuthenticationEntryPoint myBasicAuthenticationEntryPoint;
