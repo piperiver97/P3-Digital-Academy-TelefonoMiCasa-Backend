@@ -76,4 +76,24 @@ public class AuthControllerTest {
         assertThat(content, containsString("admin"));
         assertThat(content, is("{\"roles\":\"ROLE_ADMIN\",\"message\":\"Logged\",\"username\":\"admin\"}"));
     }
+
+    @Test
+    @WithMockUser(username = "tito", roles = { "USER" })
+    void testLoginAsUser() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(get("/api/v1/login")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isAccepted())
+                .andReturn()
+                .getResponse();
+
+        String content = response.getContentAsString();
+        assertNotNull(content);
+        
+        System.out.println(content);
+       
+        assertThat(content, containsString("roles"));
+        assertThat(content, containsString("Logged"));
+        assertThat(content, containsString("tito"));
+        assertThat(content, is("{\"roles\":\"ROLE_USER\",\"message\":\"Logged\",\"username\":\"tito\"}"));
+    }
 }
