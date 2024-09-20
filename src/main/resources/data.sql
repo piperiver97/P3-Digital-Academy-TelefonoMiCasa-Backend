@@ -4,7 +4,7 @@ INSERT INTO roles (id_role, name) VALUES (default, 'ROLE_ADMIN');
 INSERT INTO roles (id_role, name) VALUES (default, 'ROLE_SALESMAN');
 
 /* Users */
-INSERT INTO users (id_user, username, password) VALUES (default, 'pepe', '1234');
+INSERT INTO users (id_user, username, password) VALUES (default, 'tito', '$2a$12$dA70.eW4pS9xXcJsws6MsO2w6fq4/pOEfPyplrI/izLxQo1KsIL2C');
 INSERT INTO users (id_user, username, password) VALUES (default, 'pepa', '$2a$12$fw8qjZwWYhvR.xzLUN5LuejC03NqCFuJQYwnstpBWki.Yi4L64MkW');
 INSERT INTO users (id_user, username, password) VALUES (default, 'bob', '$2a$12$ZqgJ/F3td45dqWFH4rg.Ruwpf9Ai8Jvd1XfG/TkhVAEn611u1Iruy');
 
