@@ -2,11 +2,11 @@ package com.factoriaf5.telefono_micasa.models;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PropertiTest {
+public class PropertyTest {
 
     @Test
     public void testPropertiConstructor() {
-        Properti properti = new Properti(1L, 150000.0, "Casa 1", "Calle A", 120.0, "venta");
+        Property properti = new Property(1L, 150000.0, "Casa 1", "Calle A", 120.0, "venta");
 
         assertEquals(1L, properti.getId());
         assertEquals(150000.0, properti.getPrice());
@@ -18,7 +18,7 @@ public class PropertiTest {
 
     @Test
     public void testSettersAndGetters() {
-        Properti properti = new Properti();
+        Property properti = new Property();
 
         properti.setId(2L);
         properti.setPrice(200000.0);

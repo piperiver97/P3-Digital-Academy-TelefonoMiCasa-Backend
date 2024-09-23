@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Properti {
+public class Property {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,9 +18,9 @@ public class Properti {
     private double area;
     private String action;
 
-    public Properti(){}
+    public Property(){}
 
-    public Properti(Long id, double price, String description, String address, double area, String action) {
+    public Property(Long id, double price, String description, String address, double area, String action) {
         this.id = id;
         this.price = price;
         this.description = description;

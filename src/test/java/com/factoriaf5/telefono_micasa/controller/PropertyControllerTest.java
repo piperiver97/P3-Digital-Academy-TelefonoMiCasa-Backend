@@ -13,25 +13,25 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.factoriaf5.telefono_micasa.models.Properti;
-import com.factoriaf5.telefono_micasa.services.PropertiService;
+import com.factoriaf5.telefono_micasa.models.Property;
+import com.factoriaf5.telefono_micasa.services.PropertyService;
 
 
-@WebMvcTest(PropertiController.class)
+@WebMvcTest(PropertyController.class)
 @AutoConfigureMockMvc(addFilters = false)
-public class PropertiControllerTest {
+public class PropertyControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
-    private PropertiService propertiService;
+    private PropertyService propertiService;
 
     @Test
     public void testGetPropertiesByAction() throws Exception {
-        List<Properti> mockProperties = Arrays.asList(
-            new Properti(1L, 150000.0, "Casa 1", "Calle A", 120.0, "compra"),
-            new Properti(2L, 200000.0, "Casa 2", "Calle B", 150.0, "compra")
+        List<Property> mockProperties = Arrays.asList(
+            new Property(1L, 150000.0, "Casa 1", "Calle A", 120.0, "compra"),
+            new Property(2L, 200000.0, "Casa 2", "Calle B", 150.0, "compra")
         );
 
         when(propertiService.getPropertiesByAction("venta")).thenReturn(mockProperties);
