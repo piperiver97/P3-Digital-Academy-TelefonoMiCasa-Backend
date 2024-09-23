@@ -23,5 +23,8 @@ public class PropertyController {
         return propertyService.getPropertiesByAction(action);
     }
 
-    
+    @GetMapping("/filter")
+    public List<Property> filterProperties(@RequestParam String type, @RequestParam String action) {
+        return propertyService.filterProperties(type, action);
+    }
 }
