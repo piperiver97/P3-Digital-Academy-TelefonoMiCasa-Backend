@@ -12,4 +12,7 @@ public interface PropertyRepository extends JpaRepository <Property, Long>{
 
     @Query("SELECT p FROM Property p WHERE p.action = :action")
     List<Property> findByAction (@Param("action") String action);
+
+    @Query("SELECT p FROM Property p WHERE p.action = :action AND TYPE(p) = :propertyType")
+    List<Property> filterByActionAndType(String action, Class<?> propertyType);
 }
