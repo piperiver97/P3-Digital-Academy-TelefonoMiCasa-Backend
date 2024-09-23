@@ -13,33 +13,33 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.factoriaf5.telefono_micasa.models.Properti;
-import com.factoriaf5.telefono_micasa.repositories.PropertiRepository;
+import com.factoriaf5.telefono_micasa.models.Property;
+import com.factoriaf5.telefono_micasa.repositories.PropertyRepository;
 
 @ExtendWith(MockitoExtension.class)
-public class PropertiServiceTest {
+public class PropertyServiceTest {
 
     @Mock
-    private PropertiRepository propertiRepository;
+    private PropertyRepository propertyRepository;
 
     @InjectMocks
-    private PropertiService propertiService;
+    private PropertyService propertyService;
 
     @Test
     public void testGetPropertiesByAction() {
      
-        Properti property1 = new Properti();
+        Property property1 = new Property();
         property1.setAction("comprar");
 
-        Properti property2 = new Properti();
+        Property property2 = new Property();
         property2.setAction("comprar");
         
-        List<Properti> properties = Arrays.asList(property1, property2);
+        List<Property> properties = Arrays.asList(property1, property2);
         
-        when(propertiRepository.findByAction("comprar")).thenReturn(properties);
+        when(propertyRepository.findByAction("comprar")).thenReturn(properties);
 
       
-        List<Properti> result = propertiService.getPropertiesByAction("comprar");
+        List<Property> result = propertyService.getPropertiesByAction("comprar");
 
      
         assertThat(result).isNotNull();
