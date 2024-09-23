@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;  // Cambiar aquí al paquete correcto
 import java.util.List;
 
+
 @Service
 public class UserService {
 
@@ -48,5 +49,13 @@ public class UserService {
 
     public List<User> getAllSalesmen() {
         return userRepository.findAll();
+    }
+    public void updateUserPassword(Long userId, String newPassword) {
+        User user = userRepository.findById(userId)
+            .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        // Encriptar la nueva contraseña
+        user.setPassword(passwordEncoder.encode(newPassword));
+        userRepository.save(user);
     }
 }
