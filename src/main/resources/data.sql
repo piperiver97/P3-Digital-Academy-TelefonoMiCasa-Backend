@@ -12,9 +12,19 @@ INSERT INTO roles_users (role_id, user_id) VALUES (1, 1);
 INSERT INTO roles_users (role_id, user_id) VALUES (2, 2); 
 INSERT INTO roles_users (role_id, user_id) VALUES (3, 3); 
 
--- Insertar algunos datos de ejemplo en la tabla 'properti'
-INSERT INTO property (price, description, address, area, action) VALUES
-(150000.00, 'Hermoso apartamento con vista al mar.', 'Calle del Mar 123, Gijón', 85.0, 'venta'),
-(200000.00, 'Casa espaciosa con jardín y piscina.', 'Avenida del Sol 456, Oviedo', 150.0, 'venta'),
-(1200.00, 'Piso céntrico en alquiler, bien comunicado.', 'Plaza Mayor 789, Avilés', 60.0, 'alquiler'),
-(350000.00, 'Ático con terraza y vistas panorámicas.', 'Calle de la Luna 321, Llanes', 100.0, 'venta');
+INSERT INTO Property (price, description, address, area, action, property_type, room, bathroom, has_elevator)
+VALUES 
+(150000, 'Hermoso apartamento con vista al mar.', 'Calle del Mar 123, Gijón', 85.0, 'venta', 'FLAT', 2, 1, true),
+(1200, 'Piso céntrico en alquiler, bien comunicado.', 'Plaza Mayor 789, Avilés', 60.0, 'alquiler', 'FLAT', 1, 1, false),
+(180000, 'Moderno apartamento en la ciudad.', 'Avenida de la Libertad 45, Oviedo', 75.0, 'venta', 'FLAT', 2, 2, true),
+(900, 'Acogedor piso en el barrio antiguo.', 'Calle de la Historia 34, Gijón', 50.0, 'alquiler', 'FLAT', 1, 1, false),
+(250000, 'Amplio apartamento con balcón.', 'Calle del Sol 12, Avilés', 90.0, 'venta', 'FLAT', 3, 2, true);
+
+
+INSERT INTO Property (price, description, address, area, action, property_type, room, bathroom)
+VALUES 
+(250000, 'Casa espaciosa con jardín y piscina.', 'Calle del Jardín 10, Gijón', 150.0, 'venta', 'HOUSE', 4, 2),
+(180000, 'Acogedora casa en una zona tranquila.', 'Calle de la Paz 45, Avilés', 120.0, 'venta', 'HOUSE', 3, 1),
+(1500, 'Casa en alquiler, ideal para familias.', 'Avenida de la Familia 22, Oviedo', 110.0, 'alquiler', 'HOUSE', 3, 2),
+(320000, 'Casa moderna con todas las comodidades.', 'Calle Nueva 5, Gijón', 200.0, 'venta', 'HOUSE', 5, 3),
+(1200, 'Casa en alquiler cerca de la playa.', 'Calle del Sol 20, Avilés', 90.0, 'alquiler', 'HOUSE', 2, 1);
