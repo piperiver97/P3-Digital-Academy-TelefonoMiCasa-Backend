@@ -49,7 +49,7 @@ public class SecurityConfig {
 
         .authorizeHttpRequests(auth -> auth
             .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
-            .requestMatchers(HttpMethod.GET, endpoint + "/search/action_type").permitAll()
+            .requestMatchers(HttpMethod.GET, endpoint + "/search/**").permitAll()
             .requestMatchers(HttpMethod.GET, endpoint + "/login").hasAnyRole("ADMIN","SALESMAN","USER")
             .requestMatchers(HttpMethod.POST, endpoint + "/salesmen").hasAnyRole("ADMIN")
             .requestMatchers(HttpMethod.GET, endpoint + "/salesmen").hasAnyRole("ADMIN")
