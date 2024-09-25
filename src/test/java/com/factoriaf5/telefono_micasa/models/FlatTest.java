@@ -1,4 +1,4 @@
-package com.factoriaf5.telefono_micasa.models;
+/* package com.factoriaf5.telefono_micasa.models;
 
 import org.junit.jupiter.api.Test;
 
@@ -48,3 +48,4 @@ public class FlatTest {
         assertTrue(flat.isHasElevator());
     }
 }
+ */

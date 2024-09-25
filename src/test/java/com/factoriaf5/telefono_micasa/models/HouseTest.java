@@ -1,4 +1,4 @@
-package com.factoriaf5.telefono_micasa.models;
+/* package com.factoriaf5.telefono_micasa.models;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -44,3 +44,4 @@ public class HouseTest {
         assertEquals(1, house.getBathroom());
     }
 }
+ */

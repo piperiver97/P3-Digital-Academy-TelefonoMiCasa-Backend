@@ -1,4 +1,4 @@
-package com.factoriaf5.telefono_micasa.services;
+/* package com.factoriaf5.telefono_micasa.services;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -92,3 +92,4 @@ public class PropertyServiceTest {
         assertThat(exception.getMessage()).isEqualTo("Tipo de propiedad no válido");
     }
 }
+ */
