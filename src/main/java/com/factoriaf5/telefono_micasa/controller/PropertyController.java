@@ -33,34 +33,15 @@ public class PropertyController {
 
     @PostMapping("/property")
     public ResponseEntity<Property> createProperty(@RequestBody PropertyDTO propertyDTO) {
-        Property property;
-        
+        Property savedProperty;
+
         try {
-            switch (propertyDTO.getType().toLowerCase()) {
-                case "house":
-                    property = propertyService.createHouse(propertyDTO);
-                    break;
-
-                case "flat":
-                    property = propertyService.createFlat(propertyDTO);
-                    break;
-
-                case "garage":
-                    property = propertyService.createGarage(propertyDTO);
-                    break;
-
-                case "storageroom":
-                    property = propertyService.createStorageRoom(propertyDTO);
-                    break;
-
-                default:
-                    return ResponseEntity.badRequest().body(null);
-            }
+            // Use the generic createProperty method
+            savedProperty = propertyService.createProperty(propertyDTO);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(null);
         }
 
-        Property savedProperty = propertyService.createProperty(property);
         return ResponseEntity.ok(savedProperty);
     }
 }

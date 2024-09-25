@@ -5,20 +5,22 @@ public class PropertyDTO {
     private Double price;
 
     // Atributos comunes
-    private String address;   // Cambiado de 'zone' a 'address'
+    private String address;   
     private String description;
 
     // Atributos específicos para 'house' y 'flat'
-    private Integer room;      // Cambiado de 'numberOfRooms' a 'room'
-    private Integer bathroom;  // Cambiado de 'numberOfBathrooms' a 'bathroom'
+    private Integer room;      
+    private Integer bathroom;  
     private Integer floors;
-    private Double area;       // Cambiado de 'squareMeters' a 'area'
+    private Double area;       
 
     // Solo para 'flat'
-    private Boolean hasElevator;  // Cambiado de 'elevator' a 'hasElevator'
+    private Boolean hasElevator;  
+
+    // Atributo para la acción
+    private String action;  // Agregamos este campo
 
     // Getters y setters
-
     public String getType() {
         return type;
     }
@@ -90,5 +92,13 @@ public class PropertyDTO {
     public void setHasElevator(Boolean hasElevator) {
         this.hasElevator = hasElevator;
     }
-}
 
+    // Getter y setter para el atributo 'action'
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
+}
