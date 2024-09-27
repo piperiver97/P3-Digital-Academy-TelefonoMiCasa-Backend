@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;  // Cambiar aquí al paquete correcto
+import java.util.Collections;
 import java.util.List;
 
 
@@ -48,13 +48,17 @@ public class UserService {
     }
 
     public List<User> getAllSalesmen() {
-        return userRepository.findAll();
+        Role salesmanRole = roleService.findByName("ROLE_SALESMAN");
+        if (salesmanRole == null) {
+            throw new IllegalArgumentException("Salesmman rol not found");
+        }
+        return userRepository.findByRolesIn(Collections.singletonList(salesmanRole));
     }
+
     public void updateUserPassword(Long userId, String newPassword) {
         User user = userRepository.findById(userId)
             .orElseThrow(() -> new IllegalArgumentException("User not found"));
 
-        // Encriptar la nueva contraseña
         user.setPassword(passwordEncoder.encode(newPassword));
         userRepository.save(user);
     }
