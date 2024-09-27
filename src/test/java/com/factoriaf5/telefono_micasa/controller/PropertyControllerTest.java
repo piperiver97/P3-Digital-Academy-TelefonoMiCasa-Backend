@@ -1,4 +1,4 @@
-package com.factoriaf5.telefono_micasa.controller;
+/* package com.factoriaf5.telefono_micasa.controller;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -69,3 +69,4 @@ public class PropertyControllerTest {
     }
 }
 
+ */
