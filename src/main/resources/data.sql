@@ -6,11 +6,19 @@ INSERT INTO roles (id_role, name) VALUES (default, 'ROLE_SALESMAN');
 /* Users */
 INSERT INTO users (id_user, username, password) VALUES (default, 'tito', '$2a$12$dA70.eW4pS9xXcJsws6MsO2w6fq4/pOEfPyplrI/izLxQo1KsIL2C');
 INSERT INTO users (id_user, username, password) VALUES (default, 'pepa', '$2a$12$fw8qjZwWYhvR.xzLUN5LuejC03NqCFuJQYwnstpBWki.Yi4L64MkW');
-INSERT INTO users (id_user, username, password) VALUES (default, 'bob', '$2a$12$ZqgJ/F3td45dqWFH4rg.Ruwpf9Ai8Jvd1XfG/TkhVAEn611u1Iruy');
+INSERT INTO users (id_user, username, password) VALUES (default, 'bob', '$2a$12$wWb4.2rqOwchUR3ToRlQ6u3q3hIXObG3aoMDGPgJvjEkCCvgfxLGa');
+
+INSERT INTO users (id_user, username, password) VALUES (default, 'alice', '$2a$12$DJtdewe8w/TDfVSasRVCsO3o/pS5VD9B33/28bDhHR1c1BBIdi1o6'); 
+
+
+
 
 INSERT INTO roles_users (role_id, user_id) VALUES (1, 1);
 INSERT INTO roles_users (role_id, user_id) VALUES (2, 2); 
-INSERT INTO roles_users (role_id, user_id) VALUES (3, 3); 
+INSERT INTO roles_users (role_id, user_id) VALUES (3, 3);
+
+INSERT INTO roles_users (role_id, user_id) VALUES (3, 4);
+ 
 
 INSERT INTO Property (price, description, address, area, action, property_type, room, bathroom, has_elevator)
 VALUES 
