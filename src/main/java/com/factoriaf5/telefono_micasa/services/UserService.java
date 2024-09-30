@@ -55,11 +55,24 @@ public class UserService {
         return userRepository.findByRolesIn(Collections.singletonList(salesmanRole));
     }
 
-    public void updateUserPassword(Long userId, String newPassword) {
+     // Método para actualizar la contraseña de un usuario por ID
+     public void updateUserPassword(Long userId, String newPassword) {
         User user = userRepository.findById(userId)
             .orElseThrow(() -> new IllegalArgumentException("User not found"));
-
-        user.setPassword(passwordEncoder.encode(newPassword));
+       
+        String decryptedPassword = base64Encoder.decode(newPassword);
+       
+        user.setPassword(passwordEncoder.encode(decryptedPassword));
+        userRepository.save(user);
+    }
+    // Método para actualizar la contraseña de un usuario por nombre de usuario
+    public void updateUserPasswordByUsername(String username, String newPassword) {
+        User user = userRepository.findByUsername(username)
+            .orElseThrow(() -> new IllegalArgumentException("User not found"));
+        
+        String decryptedPassword = base64Encoder.decode(newPassword);
+       
+        user.setPassword(passwordEncoder.encode(decryptedPassword));
         userRepository.save(user);
     }
 }

@@ -4,6 +4,8 @@ import com.factoriaf5.telefono_micasa.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.Authentication;
+
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -42,23 +44,17 @@ public class SalesmanController {
     }
 
     // Endpoint para actualizar la contraseña de un vendedor con PUT
-    @PutMapping("/salesmen/{id}/update-password")
+    @PutMapping("/salesmen/update-password")
     public ResponseEntity<Map<String, String>> updateSalesmanPassword(
-        @PathVariable Long id, 
-        @RequestHeader("encryptedPassword") String encryptedPassword) {
-
+        @RequestHeader("encryptedPassword") String encryptedPassword,
+        Authentication authentication) {
         try {
-            // Llama al servicio para actualizar la contraseña del vendedor
-            userService.updateUserPassword(id, encryptedPassword);
-
-            // Preparar respuesta
+            String username = authentication.getName();
+            userService.updateUserPasswordByUsername(username, encryptedPassword);
             Map<String, String> response = new HashMap<>();
             response.put("message", "Password updated successfully!");
-
             return ResponseEntity.ok(response);
-
         } catch (Exception e) {
-            // Manejar el error en caso de que algo falle
             return ResponseEntity.status(400).body(Collections.singletonMap("error", "Error updating password: " + e.getMessage()));
         }
     }
