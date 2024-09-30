@@ -43,19 +43,24 @@ public class SalesmanController {
         return ResponseEntity.ok(userService.getAllSalesmen());
     }
 
-    // Endpoint para actualizar la contraseña de un vendedor con PUT
+    
     @PutMapping("/salesmen/update-password")
     public ResponseEntity<Map<String, String>> updateSalesmanPassword(
         @RequestHeader("encryptedPassword") String encryptedPassword,
         Authentication authentication) {
+        
         try {
             String username = authentication.getName();
-            userService.updateUserPasswordByUsername(username, encryptedPassword);
+            userService.updateSalesmanPassword(username, encryptedPassword);
+            
             Map<String, String> response = new HashMap<>();
             response.put("message", "Password updated successfully!");
             return ResponseEntity.ok(response);
+            
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(Collections.singletonMap("error", "Error updating password: " + e.getMessage()));
         } catch (Exception e) {
-            return ResponseEntity.status(400).body(Collections.singletonMap("error", "Error updating password: " + e.getMessage()));
+            return ResponseEntity.status(500).body(Collections.singletonMap("error", "Internal server error: " + e.getMessage()));
         }
     }
 }

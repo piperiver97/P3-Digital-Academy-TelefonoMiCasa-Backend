@@ -4,6 +4,7 @@ import com.factoriaf5.telefono_micasa.facades.encryptations.Base64Encoder;
 import com.factoriaf5.telefono_micasa.models.Role;
 import com.factoriaf5.telefono_micasa.models.User;
 import com.factoriaf5.telefono_micasa.repositories.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -55,17 +56,8 @@ public class UserService {
         return userRepository.findByRolesIn(Collections.singletonList(salesmanRole));
     }
 
-     // Método para actualizar la contraseña de un usuario por ID
-     public void updateUserPassword(Long userId, String newPassword) {
-        User user = userRepository.findById(userId)
-            .orElseThrow(() -> new IllegalArgumentException("User not found"));
-       
-        String decryptedPassword = base64Encoder.decode(newPassword);
-       
-        user.setPassword(passwordEncoder.encode(decryptedPassword));
-        userRepository.save(user);
-    }
-    // Método para actualizar la contraseña de un usuario por nombre de usuario
+ 
+   
     public void updateUserPasswordByUsername(String username, String newPassword) {
         User user = userRepository.findByUsername(username)
             .orElseThrow(() -> new IllegalArgumentException("User not found"));
@@ -74,5 +66,8 @@ public class UserService {
        
         user.setPassword(passwordEncoder.encode(decryptedPassword));
         userRepository.save(user);
+    }
+    public void updateSalesmanPassword(String username, String encryptedPassword) {
+        updateUserPasswordByUsername(username, encryptedPassword);
     }
 }
