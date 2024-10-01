@@ -58,7 +58,7 @@ public class UserService {
 
  
    
-    public void updateUserPasswordByUsername(String username, String newPassword) {
+ /*    public void updateUserPasswordByUsername(String username, String newPassword) {
         User user = userRepository.findByUsername(username)
             .orElseThrow(() -> new IllegalArgumentException("User not found"));
         
@@ -69,5 +69,35 @@ public class UserService {
     }
     public void updateSalesmanPassword(String username, String encryptedPassword) {
         updateUserPasswordByUsername(username, encryptedPassword);
+    } */
+
+        // Método para actualizar la contraseña de un usuario por nombre de usuario
+        public void updateUserPasswordByUsername(String username, String newPassword) {
+            User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+            // Verifica si la contraseña ya ha sido cambiada
+            if (user.isPasswordChanged()) {
+                throw new IllegalArgumentException("La contraseña ya ha sido cambiada una vez.");
+            }
+            // Desencriptar la nueva contraseña si está encriptada en Base64
+            String decryptedPassword = base64Encoder.decode(newPassword);
+            // Encriptar la nueva contraseña
+            user.setPassword(passwordEncoder.encode(decryptedPassword));
+            // Marcar que la contraseña ha sido cambiada
+            user.setPasswordChanged(true);
+            userRepository.save(user);
+        }
+        public void updateSalesmanPassword(String username, String encryptedPassword) {
+            updateUserPasswordByUsername(username, encryptedPassword);
+        }
+        // Método para buscar un usuario por su nombre de usuario
+        public User findByUsername(String username) {
+            return userRepository.findByUsername(username)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+        }
+        // Nuevo método para obtener el estado de cambio de contraseña
+        public boolean getPasswordChangeStatus(String username) {
+            User user = findByUsername(username);
+            return user.isPasswordChanged();
+        }
     }
-}
