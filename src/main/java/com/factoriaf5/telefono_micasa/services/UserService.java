@@ -67,6 +67,25 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(decryptedPassword));
         userRepository.save(user);
     }
+    public void registerClient(String username, String encryptedPassword) {
+        Role clientRole = roleService.findByName("ROLE_USER");
+
+        if (clientRole == null) {
+            throw new IllegalArgumentException("Role not found");
+        }
+
+        if (userRepository.findByUsername(username).isPresent()) {
+            throw new IllegalArgumentException("Username already exists");
+        }
+
+        String decryptedPassword = base64Encoder.decode(encryptedPassword);
+
+        User user = new User(username, decryptedPassword);
+        user.setRoles(Collections.singleton(clientRole));
+
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
+    }
     public void updateSalesmanPassword(String username, String encryptedPassword) {
         updateUserPasswordByUsername(username, encryptedPassword);
     } */
