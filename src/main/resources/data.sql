@@ -42,4 +42,12 @@ VALUES
 (300, 'Trastero en alquiler en zona residencial.', 'Calle del Almacenamiento 5, Gijón', 15.0, 'alquiler', 'STORAGEROOM'),
 (70000, 'Gran trastero con sistema de seguridad.', 'Calle del Resguardo 3, Avilés', 30.0, 'venta', 'STORAGEROOM');
 
+INSERT INTO Property (price, description, address, area, action, property_type)
+VALUES 
+(20000, 'Garaje cerrado en el centro de la ciudad.', 'Calle de la Estacion 5, Gijón', 18.0, 'venta', 'GARAGE'),
+(150, 'Plaza de garaje en alquiler, fácil acceso.', 'Calle de la Libertad 8, Avilés', 12.0, 'alquiler', 'GARAGE'),
+(25000, 'Garaje amplio con espacio para dos coches.', 'Avenida de la Paz 20, Oviedo', 25.0, 'venta', 'GARAGE'),
+(100, 'Garaje en alquiler en zona tranquila.', 'Calle del Automóvil 7, Gijón', 15.0, 'alquiler', 'GARAGE'),
+(30000, 'Garaje en venta con seguridad las 24 horas.', 'Calle de la Seguridad 9, Avilés', 20.0, 'venta', 'GARAGE');
+
 
