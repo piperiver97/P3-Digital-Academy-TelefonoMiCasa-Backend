@@ -33,3 +33,13 @@ VALUES
 (1500, 'Casa en alquiler, ideal para familias.', 'Avenida de la Familia 22, Oviedo', 110.0, 'alquiler', 'HOUSE', 3, 2),
 (320000, 'Casa moderna con todas las comodidades.', 'Calle Nueva 5, Gijón', 200.0, 'venta', 'HOUSE', 5, 3),
 (1200, 'Casa en alquiler cerca de la playa.', 'Calle del Sol 20, Avilés', 90.0, 'alquiler', 'HOUSE', 2, 1);
+
+INSERT INTO Property (price, description, address, area, action, property_type)
+VALUES 
+(50000, 'Trastero amplio en el centro de la ciudad.', 'Calle de la Almacen 1, Gijón', 20.0, 'venta', 'STORAGEROOM'),
+(400, 'Pequeño trastero ideal para guardar bicicletas.', 'Calle del Garaje 10, Avilés', 10.0, 'alquiler', 'STORAGEROOM'),
+(60000, 'Trastero con acceso fácil y seguro.', 'Avenida de la Organización 15, Oviedo', 25.0, 'venta', 'STORAGEROOM'),
+(300, 'Trastero en alquiler en zona residencial.', 'Calle del Almacenamiento 5, Gijón', 15.0, 'alquiler', 'STORAGEROOM'),
+(70000, 'Gran trastero con sistema de seguridad.', 'Calle del Resguardo 3, Avilés', 30.0, 'venta', 'STORAGEROOM');
+
+

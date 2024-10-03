@@ -11,10 +11,10 @@ import com.factoriaf5.telefono_micasa.factories.HouseFactory;
 import com.factoriaf5.telefono_micasa.factories.PropertyFactory;
 import com.factoriaf5.telefono_micasa.factories.StorageRoomFactory;
 import com.factoriaf5.telefono_micasa.models.Flat;
-
+import com.factoriaf5.telefono_micasa.models.Garage;
 import com.factoriaf5.telefono_micasa.models.House;
 import com.factoriaf5.telefono_micasa.models.Property;
-
+import com.factoriaf5.telefono_micasa.models.StorageRoom;
 import com.factoriaf5.telefono_micasa.repositories.PropertyRepository;
 
 @Service
@@ -35,6 +35,12 @@ public class PropertyService {
                 break;
             case "FLAT":
                 typeClass = Flat.class;
+                break;
+            case "GARAGE":
+                typeClass = Garage.class;
+                break;
+            case "STORAGEROOM":
+                typeClass = StorageRoom.class;
                 break;
             default:
                 throw new IllegalArgumentException("Tipo de propiedad no válido");
