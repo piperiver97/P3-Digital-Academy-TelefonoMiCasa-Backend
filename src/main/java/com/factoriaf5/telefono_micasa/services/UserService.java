@@ -87,7 +87,7 @@ public class UserService {
         userRepository.save(user);
     }
     public void updateSalesmanPassword(String username, String encryptedPassword) {
-        updateUserPasswordByUsername(username, encryptedPassword);
+        updateUserPasswordByUsername(username, encryptedPassword); 
     } */
 
         // Método para actualizar la contraseña de un usuario por nombre de usuario
