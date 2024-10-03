@@ -27,9 +27,14 @@ public class PropertyController {
     }
 
     @GetMapping("/search/filter")
-    public List<Property> filterProperties(@RequestParam String type, @RequestParam String action) {
-        return propertyService.filterProperties(type, action);
+    public ResponseEntity<List<Property>> filterProperties(
+        @RequestParam String type, 
+        @RequestParam String action,
+        @RequestParam(required = true) String address) {  
+        List<Property> properties = propertyService.filterProperties(type, action, address);
+        return ResponseEntity.ok(properties);
     }
+    
 
     @PostMapping("/property")
     public ResponseEntity<Property> createProperty(@RequestBody PropertyDTO propertyDTO) {

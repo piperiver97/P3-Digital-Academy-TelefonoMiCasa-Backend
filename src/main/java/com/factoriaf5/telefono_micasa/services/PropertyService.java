@@ -27,7 +27,7 @@ public class PropertyService {
         return propertyRepository.findByAction(action);
     }
 
-    public List<Property> filterProperties(String propertyType, String action) {
+    public List<Property> filterProperties(String propertyType, String action, String address) {
         Class<?> typeClass;
         switch (propertyType.toUpperCase()) {
             case "HOUSE":
@@ -45,8 +45,9 @@ public class PropertyService {
             default:
                 throw new IllegalArgumentException("Tipo de propiedad no válido");
         }
-        return propertyRepository.filterByActionAndType(action, typeClass);
+        return propertyRepository.filterByActionTypeAndAddress(action, typeClass, address);
     }
+    
 
     
 
