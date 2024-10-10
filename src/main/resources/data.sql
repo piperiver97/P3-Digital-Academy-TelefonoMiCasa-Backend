@@ -17,6 +17,16 @@ INSERT INTO roles_users (role_id, user_id) VALUES (3, 3);
 INSERT INTO roles_users (role_id, user_id) VALUES (3, 4);
  
 
+ INSERT INTO zone (name) VALUES ('Área de Avilés');
+INSERT INTO zone (name) VALUES ('Área de Gijón');
+INSERT INTO zone (name) VALUES ('Área de Oviedo');
+INSERT INTO zone (name) VALUES ('Caudal');
+INSERT INTO zone (name) VALUES ('Eo-Navia');
+INSERT INTO zone (name) VALUES ('Nalón');
+INSERT INTO zone (name) VALUES ('Narcea');
+INSERT INTO zone (name) VALUES ('Oriente');
+
+
 INSERT INTO Property (price, description, address, area, action, property_type, room, bathroom, has_elevator)
 VALUES 
 (150000, 'Hermoso apartamento con vista al mar.', 'Calle del Mar 123, Gijón', 85.0, 'venta', 'FLAT', 2, 1, true),

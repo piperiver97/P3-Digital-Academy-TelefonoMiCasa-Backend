@@ -51,12 +51,13 @@ public class SecurityConfig {
             .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
             .requestMatchers(HttpMethod.GET, endpoint + "/search/**").permitAll()
             .requestMatchers(HttpMethod.POST, endpoint + "/client").permitAll()
+            .requestMatchers(HttpMethod.GET, endpoint + "/zone").permitAll()
             .requestMatchers(HttpMethod.GET, endpoint + "/login").hasAnyRole("ADMIN","SALESMAN","USER")
             .requestMatchers(HttpMethod.POST, endpoint + "/salesmen").hasAnyRole("ADMIN")
             .requestMatchers(HttpMethod.GET, endpoint + "/salesmen").hasAnyRole("ADMIN")
             .requestMatchers(HttpMethod.DELETE, endpoint + "/salesmen").hasAnyRole("ADMIN")
+            .requestMatchers(HttpMethod.PUT, endpoint + "/zone/**").hasAnyRole("ADMIN")
             .requestMatchers(HttpMethod.POST, endpoint + "/property").hasAnyRole("SALESMAN")
-
             .requestMatchers(HttpMethod.PUT, endpoint + "/salesmen/update-password").hasAnyRole("SALESMAN")
             .anyRequest().authenticated())
 
