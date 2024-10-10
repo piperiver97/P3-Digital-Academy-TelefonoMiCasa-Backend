@@ -10,8 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import java.util.Arrays; // Importar Arrays
-import java.util.List; 
+
 @RestController
 @RequestMapping("/api/appointments")
 public class AppointmentController {
@@ -22,14 +21,7 @@ public class AppointmentController {
     @Autowired
     private PropertyService propertyService;
 
-       private static final List<String> VALID_TIME_SLOTS = Arrays.asList(
-        "09:00-12:00",
-        "12:00-14:00",
-        "16:00-18:00",
-        "18:00-20:00"
-    );
-
-    @PostMapping
+       @PostMapping
     public ResponseEntity<Appointment> createAppointment(@Validated @RequestBody AppointmentDTO appointmentDTO) {
         // Fetch the Property by its ID
         Property property = propertyService.getPropertyById(appointmentDTO.getPropertyId());
