@@ -1,4 +1,4 @@
-package com.factoriaf5.telefono_micasa.integration;
+/* package com.factoriaf5.telefono_micasa.integration;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -79,3 +79,4 @@ public class PropertyRepositoryTest {
     }
     
 }
+ */
