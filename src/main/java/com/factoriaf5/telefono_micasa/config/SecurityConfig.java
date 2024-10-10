@@ -49,6 +49,7 @@ public class SecurityConfig {
 
         .authorizeHttpRequests(auth -> auth
             .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
+            .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
             .requestMatchers(HttpMethod.GET, endpoint + "/search/**").permitAll()
             .requestMatchers(HttpMethod.POST, endpoint + "/client").permitAll()
             .requestMatchers(HttpMethod.POST, endpoint + "/personform").permitAll() // Permitir acceso al endpoint de personas
