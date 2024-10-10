@@ -1,6 +1,9 @@
 package com.factoriaf5.telefono_micasa.services;
 
 import java.util.List;
+
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +19,8 @@ import com.factoriaf5.telefono_micasa.models.House;
 import com.factoriaf5.telefono_micasa.models.Property;
 import com.factoriaf5.telefono_micasa.models.StorageRoom;
 import com.factoriaf5.telefono_micasa.repositories.PropertyRepository;
+
+
 
 @Service
 public class PropertyService {
@@ -73,5 +78,9 @@ public class PropertyService {
         
         Property property = factory.createProperty(propertyDTO);
         return propertyRepository.save(property);
+    }
+      public Property getPropertyById(Long id) {
+        Optional<Property> property = propertyRepository.findById(id);
+        return property.orElse(null);  // Return the property or null if not found
     }
 }
