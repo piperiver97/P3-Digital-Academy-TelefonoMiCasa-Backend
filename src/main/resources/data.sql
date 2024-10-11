@@ -52,4 +52,11 @@ VALUES
 (100, 'Garaje en alquiler en zona tranquila.', 'Calle del Automóvil 7, Gijón', 15.0, 'alquiler', 'GARAGE'),
 (30000, 'Garaje en venta con seguridad las 24 horas.', 'Calle de la Seguridad 9, Avilés', 20.0, 'venta', 'GARAGE');
 
+INSERT INTO appointments (id, name, phone, time_slot, property_id) VALUES
+(default, 'Luis Ramírez', '654321987', '9:00-12:00', 1),
+(default, 'María López', '678543210', '12:00-14:00', 5),
+(default, 'Juan García', '612345678', '16:00-18:00', 6),
+(default, 'Ana Fernández', '687654321', '18:00-20:00', 10),
+(default, 'Pedro Sánchez', '623456789', '9:00-12:00', 15);
+
 
