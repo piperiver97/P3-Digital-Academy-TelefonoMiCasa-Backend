@@ -6,6 +6,8 @@ import com.factoriaf5.telefono_micasa.models.Property;
 import com.factoriaf5.telefono_micasa.services.AppointmentService;
 import com.factoriaf5.telefono_micasa.services.PropertyService;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -40,5 +42,11 @@ public class AppointmentController {
         } else {
             return ResponseEntity.badRequest().body(null);  // Return 400 Bad Request if property not found
         }
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Appointment>> getAllAppointments() {
+        List<Appointment> appointments = appointmentService.getAllAppointments();
+        return ResponseEntity.ok(appointments);
     }
 }
