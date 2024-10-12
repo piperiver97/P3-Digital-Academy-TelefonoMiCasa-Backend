@@ -1,5 +1,8 @@
 package com.factoriaf5.telefono_micasa.models;
 import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -30,7 +33,8 @@ public class User {
     Set<Role> roles;
 
      @OneToOne(mappedBy = "user")
-    private Zone zone;
+     @JsonIgnore 
+     private Zone zone;
 
     // Constructor vacío
     public User() {}

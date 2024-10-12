@@ -18,7 +18,7 @@ public class Zone {
     private String name;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = true) 
     private User user;
 
 
