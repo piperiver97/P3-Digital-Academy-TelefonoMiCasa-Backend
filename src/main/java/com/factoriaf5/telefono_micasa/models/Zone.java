@@ -1,11 +1,15 @@
 package com.factoriaf5.telefono_micasa.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.OneToOne;
 
 
@@ -17,8 +21,8 @@ public class Zone {
     private Long id;
     private String name;
 
-    @OneToOne
-    @JoinColumn(name = "user_id", nullable = true) 
+    @OneToOne(mappedBy = "zone" )
+    @JsonIgnore
     private User user;
 
 

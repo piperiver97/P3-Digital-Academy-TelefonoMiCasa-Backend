@@ -31,6 +31,7 @@ public class ZoneService {
              Zone zone = zoneRepository.findById(zoneId).orElseThrow();
              User user = userRepository.findById(zoneDTO.getUserId()).orElseThrow();
              zone.setUser(user);
+             user.setZone(zone);
              Zone zoneUpdate = zoneRepository.save(zone);
              return zoneUpdate;
         } catch (Exception e) {

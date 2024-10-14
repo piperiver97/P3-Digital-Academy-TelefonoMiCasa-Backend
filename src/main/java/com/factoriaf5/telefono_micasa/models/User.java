@@ -3,6 +3,7 @@ import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -32,8 +33,10 @@ public class User {
                inverseJoinColumns = @JoinColumn(name = "role_id"))
     Set<Role> roles;
 
-     @OneToOne(mappedBy = "user")
-     @JsonIgnore 
+    @OneToOne( fetch =FetchType.EAGER)
+    @JoinTable(name = "users_zones", 
+        joinColumns = { @JoinColumn(name = "user_id", referencedColumnName = "id_user") },
+        inverseJoinColumns = {@JoinColumn(name = "zone_id", referencedColumnName = "id")})
      private Zone zone;
 
     // Constructor vacío

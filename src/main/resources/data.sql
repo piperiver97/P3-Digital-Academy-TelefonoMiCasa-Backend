@@ -19,14 +19,14 @@ INSERT INTO roles_users (role_id, user_id) VALUES (3, 4);
 
 
 
- INSERT INTO zone (name) VALUES ('Área de Avilés');
-INSERT INTO zone (name) VALUES ('Área de Gijón');
+INSERT INTO zone (name) VALUES ('Área de Avilés');
+ INSERT INTO zone (name) VALUES ('Área de Gijón');
 INSERT INTO zone (name) VALUES ('Área de Oviedo');
 INSERT INTO zone (name) VALUES ('Caudal');
 INSERT INTO zone (name) VALUES ('Eo-Navia');
 INSERT INTO zone (name) VALUES ('Nalón');
 INSERT INTO zone (name) VALUES ('Narcea');
-INSERT INTO zone (name) VALUES ('Oriente');
+INSERT INTO zone (name) VALUES ('Oriente'); 
 
 
 INSERT INTO Property (price, description, address, area, action, property_type, room, bathroom, has_elevator, floors)

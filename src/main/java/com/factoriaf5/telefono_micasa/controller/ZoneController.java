@@ -35,25 +35,3 @@ public class ZoneController {
         }
 }
 
-
-
-
-//
-
- // Optional<Zone> zoneOptional = zoneRepository.findById(zoneId);
-        // if (zoneOptional.isPresent()) {
-        //     Zone zone = zoneOptional.get();
-
-        //     Optional<User> userOptional = userRepository.findById(userId);
-        //     if (userOptional.isPresent()) {
-        //         User user = userOptional.get();
-
-        //         zone.setUser(user);
-        //         zoneRepository.save(zone);
-        //         return ResponseEntity.ok("Zona asignada correctamente al usuario.");
-        //     } else {
-        //         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado.");
-        //     }
-        // } else {
-        //     return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Zona no encontrada.");
-        // }
