@@ -1,5 +1,9 @@
 package com.factoriaf5.telefono_micasa.models;
 import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -9,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 @Entity
 @Table(name = "users")
@@ -27,6 +32,13 @@ public class User {
                joinColumns = @JoinColumn(name = "user_id"),
                inverseJoinColumns = @JoinColumn(name = "role_id"))
     Set<Role> roles;
+
+    @OneToOne( fetch =FetchType.EAGER)
+    @JoinTable(name = "users_zones", 
+        joinColumns = { @JoinColumn(name = "user_id", referencedColumnName = "id_user") },
+        inverseJoinColumns = {@JoinColumn(name = "zone_id", referencedColumnName = "id")})
+     private Zone zone;
+
     // Constructor vacío
     public User() {}
     // Constructor con parámetros
@@ -66,5 +78,13 @@ public class User {
     }
     public void setPasswordChanged(boolean passwordChanged) {
         this.passwordChanged = passwordChanged;
+    }
+
+    public Zone getZone() {
+        return zone;
+    }
+
+    public void setZone(Zone zone) {
+        this.zone = zone;
     }
 }
