@@ -1,26 +1,18 @@
 package com.factoriaf5.telefono_micasa.dtos;
 
 public class PropertyDTO {
-    private String type; // 'house', 'flat', 'garage', 'storageroom'
+    private String type;
     private Double price;
-
-    // Atributos comunes
     private String address;   
     private String description;
-
-    // Atributos específicos para 'house' y 'flat'
     private Integer room;      
     private Integer bathroom;  
     private Integer floors;
     private Double area;       
-
-    // Solo para 'flat'
     private Boolean hasElevator;  
+    private String action;  
+    private Long userId;  
 
-    // Atributo para la acción
-    private String action;  // Agregamos este campo
-
-    // Getters y setters
     public String getType() {
         return type;
     }
@@ -93,12 +85,19 @@ public class PropertyDTO {
         this.hasElevator = hasElevator;
     }
 
-    // Getter y setter para el atributo 'action'
     public String getAction() {
         return action;
     }
 
     public void setAction(String action) {
         this.action = action;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }
