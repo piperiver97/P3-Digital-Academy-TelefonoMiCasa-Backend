@@ -18,39 +18,37 @@ INSERT INTO roles_users (role_id, user_id) VALUES (3, 4);
  
 
 
-
-INSERT INTO Property (price, description, address, area, action, property_type, room, bathroom, has_elevator, floors)
+INSERT INTO Property (price, description, address, area, action, property_type, room, bathroom, has_elevator, floors, user_id)
 VALUES 
-(150000, 'Hermoso apartamento con vista al mar.', 'Calle del Mar 123, Gijón', 85.0, 'venta', 'FLAT', 2, 1, true, 5),
-(1200, 'Piso céntrico en alquiler, bien comunicado.', 'Plaza Mayor 789, Avilés', 60.0, 'alquiler', 'FLAT', 1, 1, false, 1),
-(180000, 'Moderno apartamento en la ciudad.', 'Avenida de la Libertad 45, Oviedo', 75.0, 'venta', 'FLAT', 2, 2, true, 3),
-(900, 'Acogedor piso en el barrio antiguo.', 'Calle de la Historia 34, Gijón', 50.0, 'alquiler', 'FLAT', 1, 1, false, 2),
-(250000, 'Amplio apartamento con balcón.', 'Calle del Sol 12, Avilés', 90.0, 'venta', 'FLAT', 3, 2, true, 4);
+(150000, 'Hermoso apartamento con vista al mar.', 'Calle del Mar 123, Gijón', 85.0, 'venta', 'FLAT', 2, 1, true, 5, 3),
+(1200, 'Piso céntrico en alquiler, bien comunicado.', 'Plaza Mayor 789, Avilés', 60.0, 'alquiler', 'FLAT', 1, 1, false, 1, 3),
+(180000, 'Moderno apartamento en la ciudad.', 'Avenida de la Libertad 45, Oviedo', 75.0, 'venta', 'FLAT', 2, 2, true, 3, 3),
+(900, 'Acogedor piso en el barrio antiguo.', 'Calle de la Historia 34, Gijón', 50.0, 'alquiler', 'FLAT', 1, 1, false, 2, 3),
+(250000, 'Amplio apartamento con balcón.', 'Calle del Sol 12, Avilés', 90.0, 'venta', 'FLAT', 3, 2, true, 4, 3);
 
-
-INSERT INTO Property (price, description, address, area, action, property_type, room, bathroom, floors)
+INSERT INTO Property (price, description, address, area, action, property_type, room, bathroom, floors, user_id)
 VALUES 
-(250000, 'Casa espaciosa con jardín y piscina.', 'Calle del Jardín 10, Gijón', 150.0, 'venta', 'HOUSE', 4, 2, 2),
-(180000, 'Acogedora casa en una zona tranquila.', 'Calle de la Paz 45, Avilés', 120.0, 'venta', 'HOUSE', 3, 1, 1),
-(1500, 'Casa en alquiler, ideal para familias.', 'Avenida de la Familia 22, Oviedo', 110.0, 'alquiler', 'HOUSE', 3, 2, 1),
-(320000, 'Casa moderna con todas las comodidades.', 'Calle Nueva 5, Gijón', 200.0, 'venta', 'HOUSE', 5, 3, 2),
-(1200, 'Casa en alquiler cerca de la playa.', 'Calle del Sol 20, Avilés', 90.0, 'alquiler', 'HOUSE', 2, 1, 1);
+(250000, 'Casa espaciosa con jardín y piscina.', 'Calle del Jardín 10, Gijón', 150.0, 'venta', 'HOUSE', 4, 2, 2, 3),
+(180000, 'Acogedora casa en una zona tranquila.', 'Calle de la Paz 45, Avilés', 120.0, 'venta', 'HOUSE', 3, 1, 1, 3),
+(1500, 'Casa en alquiler, ideal para familias.', 'Avenida de la Familia 22, Oviedo', 110.0, 'alquiler', 'HOUSE', 3, 2, 1, 3),
+(320000, 'Casa moderna con todas las comodidades.', 'Calle Nueva 5, Gijón', 200.0, 'venta', 'HOUSE', 5, 3, 2, 3),
+(1200, 'Casa en alquiler cerca de la playa.', 'Calle del Sol 20, Avilés', 90.0, 'alquiler', 'HOUSE', 2, 1, 1, 3);
 
-INSERT INTO Property (price, description, address, area, action, property_type)
+INSERT INTO Property (price, description, address, area, action, property_type, user_id)
 VALUES 
-(50000, 'Trastero amplio en el centro de la ciudad.', 'Calle de la Almacen 1, Gijón', 20.0, 'venta', 'STORAGEROOM'),
-(400, 'Pequeño trastero ideal para guardar bicicletas.', 'Calle del Garaje 10, Avilés', 10.0, 'alquiler', 'STORAGEROOM'),
-(60000, 'Trastero con acceso fácil y seguro.', 'Avenida de la Organización 15, Oviedo', 25.0, 'venta', 'STORAGEROOM'),
-(300, 'Trastero en alquiler en zona residencial.', 'Calle del Almacenamiento 5, Gijón', 15.0, 'alquiler', 'STORAGEROOM'),
-(70000, 'Gran trastero con sistema de seguridad.', 'Calle del Resguardo 3, Avilés', 30.0, 'venta', 'STORAGEROOM');
+(50000, 'Trastero amplio en el centro de la ciudad.', 'Calle de la Almacen 1, Gijón', 20.0, 'venta', 'STORAGEROOM', 3),
+(400, 'Pequeño trastero ideal para guardar bicicletas.', 'Calle del Garaje 10, Avilés', 10.0, 'alquiler', 'STORAGEROOM', 3),
+(60000, 'Trastero con acceso fácil y seguro.', 'Avenida de la Organización 15, Oviedo', 25.0, 'venta', 'STORAGEROOM', 3),
+(300, 'Trastero en alquiler en zona residencial.', 'Calle del Almacenamiento 5, Gijón', 15.0, 'alquiler', 'STORAGEROOM', 3),
+(70000, 'Gran trastero con sistema de seguridad.', 'Calle del Resguardo 3, Avilés', 30.0, 'venta', 'STORAGEROOM', 3);
 
-INSERT INTO Property (price, description, address, area, action, property_type)
+INSERT INTO Property (price, description, address, area, action, property_type, user_id)
 VALUES 
-(20000, 'Garaje cerrado en el centro de la ciudad.', 'Calle de la Estacion 5, Gijón', 18.0, 'venta', 'GARAGE'),
-(150, 'Plaza de garaje en alquiler, fácil acceso.', 'Calle de la Libertad 8, Avilés', 12.0, 'alquiler', 'GARAGE'),
-(25000, 'Garaje amplio con espacio para dos coches.', 'Avenida de la Paz 20, Oviedo', 25.0, 'venta', 'GARAGE'),
-(100, 'Garaje en alquiler en zona tranquila.', 'Calle del Automóvil 7, Gijón', 15.0, 'alquiler', 'GARAGE'),
-(30000, 'Garaje en venta con seguridad las 24 horas.', 'Calle de la Seguridad 9, Avilés', 20.0, 'venta', 'GARAGE');
+(20000, 'Garaje cerrado en el centro de la ciudad.', 'Calle de la Estacion 5, Gijón', 18.0, 'venta', 'GARAGE', 3),
+(150, 'Plaza de garaje en alquiler, fácil acceso.', 'Calle de la Libertad 8, Avilés', 12.0, 'alquiler', 'GARAGE', 3),
+(25000, 'Garaje amplio con espacio para dos coches.', 'Avenida de la Paz 20, Oviedo', 25.0, 'venta', 'GARAGE', 3),
+(100, 'Garaje en alquiler en zona tranquila.', 'Calle del Automóvil 7, Gijón', 15.0, 'alquiler', 'GARAGE', 3),
+(30000, 'Garaje en venta con seguridad las 24 horas.', 'Calle de la Seguridad 9, Avilés', 20.0, 'venta', 'GARAGE', 3);
 
 INSERT INTO appointments (id, name, phone, time_slot, property_id) VALUES
 (default, 'Luis Ramírez', '654321987', '9:00-12:00', 1),
