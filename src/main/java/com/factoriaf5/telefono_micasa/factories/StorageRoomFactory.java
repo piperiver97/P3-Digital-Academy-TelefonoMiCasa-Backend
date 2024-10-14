@@ -12,6 +12,7 @@ public class StorageRoomFactory extends PropertyFactory {
         storageRoom.setArea(propertyDTO.getArea());
         storageRoom.setAddress(propertyDTO.getAddress());
         storageRoom.setDescription(propertyDTO.getDescription());
+        storageRoom.setAction(propertyDTO.getAction());
         return storageRoom;
     }
 }

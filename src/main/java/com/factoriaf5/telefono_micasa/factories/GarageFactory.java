@@ -11,6 +11,7 @@ public class GarageFactory extends PropertyFactory {
         garage.setPrice(propertyDTO.getPrice());
         garage.setAddress(propertyDTO.getAddress());
         garage.setDescription(propertyDTO.getDescription());
+        garage.setAction(propertyDTO.getAction());
         return garage;
     }
 }
