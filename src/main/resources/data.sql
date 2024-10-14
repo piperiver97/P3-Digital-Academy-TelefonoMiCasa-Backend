@@ -3,13 +3,13 @@ INSERT INTO roles (id_role, name) VALUES (default, 'ROLE_ADMIN');
 INSERT INTO roles (id_role, name) VALUES (default, 'ROLE_SALESMAN');
 /* Users */
 INSERT INTO users (id_user, username, password, password_changed)
-VALUES (default, 'tito', '$2a$12$dA70.eW4pS9xXcJsws6MsO2w6fq4/pOEfPyplrI/izLxQo1KsIL2C', false);
+VALUES (default, 'tito@gmail.com', '$2a$12$dA70.eW4pS9xXcJsws6MsO2w6fq4/pOEfPyplrI/izLxQo1KsIL2C', false);
 INSERT INTO users (id_user, username, password, password_changed)
-VALUES (default, 'pepa', '$2a$12$fw8qjZwWYhvR.xzLUN5LuejC03NqCFuJQYwnstpBWki.Yi4L64MkW', false);
+VALUES (default, 'pepa@gmail.com', '$2a$12$fw8qjZwWYhvR.xzLUN5LuejC03NqCFuJQYwnstpBWki.Yi4L64MkW', false);
 INSERT INTO users (id_user, username, password, password_changed)
-VALUES (default, 'bob', '$2a$12$7uWA52eNAmqdmIN5mq01iuFR2o8rpfDzrQQ.H4NOmENrILiAvMysC', false);
+VALUES (default, 'bob@gmail.com', '$2a$12$7uWA52eNAmqdmIN5mq01iuFR2o8rpfDzrQQ.H4NOmENrILiAvMysC', false);
 INSERT INTO users (id_user, username, password, password_changed)
-VALUES (default, 'lolo', '$2a$12$FjUhJEtSs86qmVt/kas07e0MO4/jNCxixw63m.vSBRHL.Tg0Ybify', false);
+VALUES (default, 'lolo@gmail.com', '$2a$12$FjUhJEtSs86qmVt/kas07e0MO4/jNCxixw63m.vSBRHL.Tg0Ybify', false);
 /* Assign roles to users */
 INSERT INTO roles_users (role_id, user_id) VALUES (1, 1);
 INSERT INTO roles_users (role_id, user_id) VALUES (2, 2);
