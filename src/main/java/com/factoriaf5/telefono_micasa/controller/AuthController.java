@@ -40,6 +40,9 @@ public class AuthController {
         // Añadimos el estado del cambio de contraseña como String ("true" o "false")
         json.put("passwordChanged", String.valueOf(user.isPasswordChanged()));
 
+        json.put("id", String.valueOf(user.getId())); 
+
+
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(json);
     }
 }
