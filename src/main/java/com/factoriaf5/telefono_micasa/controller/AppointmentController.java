@@ -24,29 +24,23 @@ public class AppointmentController {
     private PropertyService propertyService;
 
     @PostMapping
-public ResponseEntity<Appointment> createAppointment(@Validated @RequestBody AppointmentDTO appointmentDTO) {
-    Property property = propertyService.getPropertyById(appointmentDTO.getPropertyId());
+    public ResponseEntity<Appointment> createAppointment(@Validated @RequestBody AppointmentDTO appointmentDTO) {
+        try {
+            Appointment savedAppointment = appointmentService.createAppointment(appointmentDTO);
+            return ResponseEntity.ok(savedAppointment);
+            
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+      
+    }
+    
 
-    if (property != null) {
-        Appointment appointment = new Appointment(
-            appointmentDTO.getName(),
-            appointmentDTO.getPhone(),
-            appointmentDTO.getTimeSlot(),
-            property,
-            appointmentDTO.getUserId() 
-        );
-
-        Appointment savedAppointment = appointmentService.createAppointment(appointment);
-        return ResponseEntity.ok(savedAppointment);
-    } else {
-        return ResponseEntity.badRequest().body(null);  
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Appointment>> getAppointmentsByUserId(@PathVariable Long userId) {
+    List<Appointment> appointments = appointmentService.getAppointmentsByUserId(userId);
+    return ResponseEntity.ok(appointments);
     }
 }
 
-@GetMapping("/user/{userId}")
-public ResponseEntity<List<Appointment>> getAppointmentsByUserId(@PathVariable Long userId) {
-    List<Appointment> appointments = appointmentService.getAppointmentsByUserId(userId);
-    return ResponseEntity.ok(appointments);
-}
 
-}

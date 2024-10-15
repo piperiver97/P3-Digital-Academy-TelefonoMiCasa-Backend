@@ -1,6 +1,7 @@
 package com.factoriaf5.telefono_micasa.models;
 
 import jakarta.persistence.*;
+
 @Entity
 @Table(name = "appointments")
 public class Appointment {
@@ -18,22 +19,28 @@ public class Appointment {
     @Column(nullable = false)
     private String timeSlot;
 
-    @ManyToOne  
-    @JoinColumn(name = "property_id", nullable = false)  
+    @ManyToOne
+    @JoinColumn(name = "property_id", nullable = false)
     private Property property;
 
-    @Column(nullable = false) 
+    @Column(nullable = false)
     private Long userId;
+
+    @Column(nullable = false)
+    private Long costumerId;
 
     public Appointment() {
     }
 
-    public Appointment(String name, String phone, String timeSlot, Property property, Long userId) {
+    public Appointment(Long id, String name, String phone, String timeSlot, Property property, Long userId,
+            Long costumerId) {
+        this.id = id;
         this.name = name;
         this.phone = phone;
         this.timeSlot = timeSlot;
         this.property = property;
         this.userId = userId;
+        this.costumerId = costumerId;
     }
 
     public Long getUserId() {
@@ -83,5 +90,13 @@ public class Appointment {
     public void setProperty(Property property) {
         this.property = property;
     }
-    
+
+    public Long getCostumerId() {
+        return costumerId;
+    }
+
+    public void setCostumerId(Long costumerId) {
+        this.costumerId = costumerId;
+    }
+
 }
