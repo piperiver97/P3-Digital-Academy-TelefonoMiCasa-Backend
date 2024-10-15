@@ -58,7 +58,7 @@ public class SecurityConfig {
             .requestMatchers(HttpMethod.POST, endpoint + "/personform").permitAll()
             .requestMatchers(HttpMethod.GET, endpoint + "/user/**" ).permitAll()
             .requestMatchers(HttpMethod.GET, endpoint + "/login").hasAnyRole("ADMIN","SALESMAN","USER")
-            .requestMatchers(HttpMethod.POST, endpoint + "/appointments").hasAnyRole("USER", "SALESMAN")
+            .requestMatchers(HttpMethod.POST, endpoint + "/appointments").authenticated()
             .requestMatchers(HttpMethod.GET, endpoint + "/appointments/user/**").hasAnyRole("SALESMAN", "USER")
             .requestMatchers(HttpMethod.POST, endpoint + "/salesmen").hasAnyRole("ADMIN")
             .requestMatchers(HttpMethod.GET, endpoint + "/salesmen").hasAnyRole("ADMIN", "SALESMAN")

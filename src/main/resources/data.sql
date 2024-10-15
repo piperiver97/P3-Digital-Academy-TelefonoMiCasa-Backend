@@ -71,11 +71,11 @@ VALUES
 (100, 'Garaje en alquiler en zona tranquila.', 'Calle del Automóvil 7, Gijón', 15.0, 'alquiler', 'GARAGE', 3),
 (30000, 'Garaje en venta con seguridad las 24 horas.', 'Calle de la Seguridad 9, Avilés', 20.0, 'venta', 'GARAGE', 3);
 
-INSERT INTO appointments (id, name, phone, time_slot, property_id, user_id) VALUES
-(default, 'Luis Ramírez', '654321987', '9:00-12:00', 1, 3),
-(default, 'María López', '678543210', '12:00-14:00', 5, 3),
-(default, 'Juan García', '612345678', '16:00-18:00', 6, 4),
-(default, 'Ana Fernández', '687654321', '18:00-20:00', 10, 4),
-(default, 'Pedro Sánchez', '623456789', '9:00-12:00', 15, 4);
+INSERT INTO appointments (id, name, phone, time_slot, property_id, user_id, costumer_id) VALUES
+(default, 'Luis Ramírez', '654321987', '9:00-12:00', 1, 3,1),
+(default, 'María López', '678543210', '12:00-14:00', 5, 3,1),
+(default, 'Juan García', '612345678', '16:00-18:00', 6, 4, 1),
+(default, 'Ana Fernández', '687654321', '18:00-20:00', 10, 4, 1),
+(default, 'Pedro Sánchez', '623456789', '9:00-12:00', 15, 4, 1);
 
 
