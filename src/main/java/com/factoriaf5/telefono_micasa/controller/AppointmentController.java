@@ -23,30 +23,30 @@ public class AppointmentController {
     @Autowired
     private PropertyService propertyService;
 
-       @PostMapping
-    public ResponseEntity<Appointment> createAppointment(@Validated @RequestBody AppointmentDTO appointmentDTO) {
-        // Fetch the Property by its ID
-        Property property = propertyService.getPropertyById(appointmentDTO.getPropertyId());
+    @PostMapping
+public ResponseEntity<Appointment> createAppointment(@Validated @RequestBody AppointmentDTO appointmentDTO) {
+    Property property = propertyService.getPropertyById(appointmentDTO.getPropertyId());
 
-        if (property != null) {
-            // Create the Appointment and set the property
-            Appointment appointment = new Appointment(
-                appointmentDTO.getName(),
-                appointmentDTO.getPhone(),
-                appointmentDTO.getTimeSlot(),
-                property
-            );
+    if (property != null) {
+        Appointment appointment = new Appointment(
+            appointmentDTO.getName(),
+            appointmentDTO.getPhone(),
+            appointmentDTO.getTimeSlot(),
+            property,
+            appointmentDTO.getUserId() 
+        );
 
-            Appointment savedAppointment = appointmentService.createAppointment(appointment);
-            return ResponseEntity.ok(savedAppointment);
-        } else {
-            return ResponseEntity.badRequest().body(null);  // Return 400 Bad Request if property not found
-        }
+        Appointment savedAppointment = appointmentService.createAppointment(appointment);
+        return ResponseEntity.ok(savedAppointment);
+    } else {
+        return ResponseEntity.badRequest().body(null);  
     }
+}
 
-    @GetMapping
-    public ResponseEntity<List<Appointment>> getAllAppointments() {
-        List<Appointment> appointments = appointmentService.getAllAppointments();
-        return ResponseEntity.ok(appointments);
-    }
+@GetMapping("/user/{userId}")
+public ResponseEntity<List<Appointment>> getAppointmentsByUserId(@PathVariable Long userId) {
+    List<Appointment> appointments = appointmentService.getAppointmentsByUserId(userId);
+    return ResponseEntity.ok(appointments);
+}
+
 }
