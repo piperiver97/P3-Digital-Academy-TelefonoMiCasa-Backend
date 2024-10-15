@@ -1,5 +1,7 @@
 package com.factoriaf5.telefono_micasa.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -17,10 +19,11 @@ public class Property {
     private double area;
     private String action;
 
-    // Nueva relación ManyToOne con User
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id") // Crea la columna user_id en la tabla Property
+    @JoinColumn(name = "user_id")
+    @JsonIgnore // Esto evita que Jackson intente serializar el proxy del User
     private User user;
+
 
     public Property() {}
 
