@@ -10,11 +10,20 @@ INSERT INTO users (id_user, username, password, password_changed)
 VALUES (default, 'bob@gmail.com', '$2a$12$7uWA52eNAmqdmIN5mq01iuFR2o8rpfDzrQQ.H4NOmENrILiAvMysC', false);
 INSERT INTO users (id_user, username, password, password_changed)
 VALUES (default, 'lolo@gmail.com', '$2a$12$FjUhJEtSs86qmVt/kas07e0MO4/jNCxixw63m.vSBRHL.Tg0Ybify', false);
+INSERT INTO users (id_user, username, password, password_changed)
+VALUES (default, 'emma@gmail.com', '$2y$10$mG5L.bS7WlWYRW0DXjP0OeVKWBFZjHae0upRLKawpfIuyIU3ukTkW', false);
+INSERT INTO users (id_user, username, password, password_changed)
+VALUES (default, 'maria@gmail.com', '$2y$10$xMKep02rr1bF.FIQsHeFyeHFAmFP3utjy2XjeuSAXttSlTOBYGQ5W', false);
+INSERT INTO users (id_user, username, password, password_changed)
+VALUES (default, 'paca@gmail.com', '$2y$10$iUDPQK0ZeAu4kAujUQrBNu1lyvQQ48Fxf7tIQnTGtMsLas9JC3w0q', false);
 /* Assign roles to users */
 INSERT INTO roles_users (role_id, user_id) VALUES (1, 1);
 INSERT INTO roles_users (role_id, user_id) VALUES (2, 2);
 INSERT INTO roles_users (role_id, user_id) VALUES (3, 3);
 INSERT INTO roles_users (role_id, user_id) VALUES (3, 4);
+INSERT INTO roles_users (role_id, user_id) VALUES (3, 5);
+INSERT INTO roles_users (role_id, user_id) VALUES (3, 6);
+INSERT INTO roles_users (role_id, user_id) VALUES (3, 7);
  
 
 
