@@ -56,7 +56,6 @@ URL: https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-
 
 
 ## 🌳​ Project Tree  
-- URL: http://localhost:8080/swagger-ui/index.html
 ```
 P3-Digital-Academy-TelefonoMiCasa-Backend
 ├─ .gitignore
@@ -161,6 +160,8 @@ P3-Digital-Academy-TelefonoMiCasa-Backend
 
 ```
 ## Doc Swager
+- URL: http://localhost:8080/swagger-ui/index.html
+
 ![d0b142d27d96ec9dfd16ab2d48483955](https://github.com/user-attachments/assets/48c47163-2c1b-4c1e-9e41-f7c18453b6b7)
 
 ## Diagrams
