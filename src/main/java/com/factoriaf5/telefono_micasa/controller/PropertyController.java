@@ -48,15 +48,15 @@ public class PropertyController {
 
     @PostMapping("/property")
     public ResponseEntity<Property> createProperty(@RequestBody PropertyDTO propertyDTO) {
-        Property savedProperty;
+    Property savedProperty;
 
-        try {
-            // Use the generic createProperty method
-            savedProperty = propertyService.createProperty(propertyDTO);
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(null);
-        }
-
-        return ResponseEntity.ok(savedProperty);
+    try {
+        savedProperty = propertyService.createProperty(propertyDTO);
+    } catch (IllegalArgumentException e) {
+        return ResponseEntity.badRequest().body(null);
     }
+
+    return ResponseEntity.ok(savedProperty);
+}
+
 }
