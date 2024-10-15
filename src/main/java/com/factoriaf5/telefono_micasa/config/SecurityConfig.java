@@ -60,7 +60,7 @@ public class SecurityConfig {
             .requestMatchers(HttpMethod.POST, endpoint + "/appointments").hasAnyRole("USER")
             .requestMatchers(HttpMethod.GET, endpoint + "/appointments").hasAnyRole("SALESMAN")
             .requestMatchers(HttpMethod.POST, endpoint + "/salesmen").hasAnyRole("ADMIN")
-            .requestMatchers(HttpMethod.GET, endpoint + "/salesmen").hasAnyRole("ADMIN")
+            .requestMatchers(HttpMethod.GET, endpoint + "/salesmen").hasAnyRole("ADMIN", "SALESMAN")
             .requestMatchers(HttpMethod.DELETE, endpoint + "/salesmen").hasAnyRole("ADMIN")
             .requestMatchers(HttpMethod.PUT, endpoint + "/zone/**").hasAnyRole("ADMIN")
             .requestMatchers(HttpMethod.POST, endpoint + "/property").hasAnyRole("SALESMAN")
