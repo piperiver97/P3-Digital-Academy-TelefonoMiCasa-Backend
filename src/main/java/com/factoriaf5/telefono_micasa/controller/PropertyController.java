@@ -2,8 +2,10 @@ package com.factoriaf5.telefono_micasa.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,7 +36,15 @@ public class PropertyController {
         List<Property> properties = propertyService.filterProperties(type, action, address);
         return ResponseEntity.ok(properties);
     }
-    
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Property>> getPropertiesByUserId(@PathVariable Long userId) {
+        List<Property> properties = propertyService.findPropertiesByUserId(userId);
+        if (properties.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(properties);
+        }
+        return ResponseEntity.ok(properties);
+    }
 
     @PostMapping("/property")
     public ResponseEntity<Property> createProperty(@RequestBody PropertyDTO propertyDTO) {

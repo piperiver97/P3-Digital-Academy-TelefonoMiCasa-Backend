@@ -83,4 +83,10 @@ public class PropertyService {
         Optional<Property> property = propertyRepository.findById(id);
         return property.orElse(null);  // Return the property or null if not found
     }
+
+    public List<Property> findPropertiesByUserId(Long userId) {
+        return propertyRepository.findByUserId(userId);
+    }
+
+
 }
