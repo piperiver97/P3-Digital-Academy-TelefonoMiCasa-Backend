@@ -23,30 +23,24 @@ public class AppointmentController {
     @Autowired
     private PropertyService propertyService;
 
-       @PostMapping
+    @PostMapping
     public ResponseEntity<Appointment> createAppointment(@Validated @RequestBody AppointmentDTO appointmentDTO) {
-        // Fetch the Property by its ID
-        Property property = propertyService.getPropertyById(appointmentDTO.getPropertyId());
-
-        if (property != null) {
-            // Create the Appointment and set the property
-            Appointment appointment = new Appointment(
-                appointmentDTO.getName(),
-                appointmentDTO.getPhone(),
-                appointmentDTO.getTimeSlot(),
-                property
-            );
-
-            Appointment savedAppointment = appointmentService.createAppointment(appointment);
+        try {
+            Appointment savedAppointment = appointmentService.createAppointment(appointmentDTO);
             return ResponseEntity.ok(savedAppointment);
-        } else {
-            return ResponseEntity.badRequest().body(null);  // Return 400 Bad Request if property not found
+            
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
         }
+      
     }
+    
 
-    @GetMapping
-    public ResponseEntity<List<Appointment>> getAllAppointments() {
-        List<Appointment> appointments = appointmentService.getAllAppointments();
-        return ResponseEntity.ok(appointments);
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Appointment>> getAppointmentsByUserId(@PathVariable Long userId) {
+    List<Appointment> appointments = appointmentService.getAppointmentsByUserId(userId);
+    return ResponseEntity.ok(appointments);
     }
 }
+
+
